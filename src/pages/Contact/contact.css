@@ -1,0 +1,86 @@
+.contact-view {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+}
+
+.contact__first-view{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.contact_hero-text {
+    padding: 20px;
+    margin-top: 80px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.contact_hero-text-pos {
+    top: 0px;
+    right: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact_hero-text > h1 {
+    text-align: center;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 45px;
+    z-index: 1;
+}
+
+.contact_hero-text > p {
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0px;
+    padding-left: 10px;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 150%;
+    z-index: 1;
+}
+
+.contact_hero-text > ul {
+    margin-top: 30px;
+    list-style: none;
+    color: #ffffff;
+    font-style: normal;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contact_hero-text > ul > li{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+}
+
+.contact_hero-text > ul > li > img{
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+}
+
+.contact_hero-text > ul > li > P{
+    padding-top: 5px;
+}
+

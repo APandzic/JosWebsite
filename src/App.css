@@ -1,0 +1,53 @@
+@import-normalize;
+
+@font-face {
+  font-family: 'IT';
+  font-style: normal;
+  font-weight: lighter;
+  src: local('IT'), url(./assets/fonts/IT156___.otf) format('opentype');
+}
+@font-face {
+  font-family: 'IT';
+  font-style: italic;
+  src: local('IT'), url(./assets/fonts/IT164___.otf) format('opentype');
+}
+@font-face {
+  font-family: 'IT';
+  font-style: normal;
+  font-weight: normal;
+  src: local('IT'), url(./assets/fonts/IT166___.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'IT';
+  font-style: normal;
+  font-weight: bold;
+  src: local('IT'), url(./assets/fonts/Rasmus-Bold.otf) format('opentype');
+}
+
+
+body{
+  font-family: IT;
+  margin: 0px;
+  padding: 0px;
+  background-color: #3B623B;
+}
+
+.App {
+  width: 100vw;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}

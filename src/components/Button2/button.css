@@ -1,0 +1,43 @@
+.btnSmall {
+    font-family: it;
+    border: none;
+    border-radius: 2px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #222;
+    padding: 17px 35px;
+    margin: 0px;
+    margin-left: 15px;
+  }
+  
+  .btnSmall span {
+    position: relative; 
+    z-index: 1;
+  }
+  
+  .btnSmall:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 490%;
+    width: 250%;
+    background: #5C955B;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  }
+  
+  .btnSmall:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }

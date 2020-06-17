@@ -1,0 +1,80 @@
+.footer-view {
+    width: 100%;
+    background-color: #3B623B;
+    display: flex;
+    justify-content: center;
+    height: 250px;
+    bottom: 0px;
+}
+
+.footer-container {
+    margin: auto;
+    width: 90%;
+    height: 60%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.footer-container ul {
+    list-style: none;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+
+.footer-container li {
+    list-style: none;
+    line-height: 30px;
+}
+
+.footer-Links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 90%;
+    padding: 0px;
+}
+
+.section-heading-bar {
+    border-top: 0px solid #ffffff;
+    width: 20px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.footer-header {
+    text-decoration: none;
+    font-style: normal;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+
+.footer-media-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 15%;
+}
+
+.social-media {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media .social-logo {
+    height: 40px;
+    width: 40px;
+    margin-left: 20px;
+}
+
+.social-media .store-logo {
+    height: 58px;
+    width: 119.66407;
+    margin-left: 20px;
+}

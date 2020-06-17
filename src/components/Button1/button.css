@@ -1,0 +1,42 @@
+.btn {
+    border: none;
+    border-radius: 2px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-family: it;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #222;
+    padding: 17px 35px;
+    margin: 0px;
+  }
+  
+  .btn span {
+    position: relative; 
+    z-index: 1;
+  }
+  
+  .btn:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 490%;
+    width: 150%;
+    background: #5C955B;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  }
+  
+  .btn:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
