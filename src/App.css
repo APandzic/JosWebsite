@@ -18,12 +18,12 @@
   src: local('IT'), url(./assets/fonts/IT166___.otf) format('opentype');
 }
 
-@font-face {
+/* @font-face {
   font-family: 'IT';
   font-style: normal;
   font-weight: bold;
   src: local('IT'), url(./assets/fonts/Rasmus-Bold.otf) format('opentype');
-}
+}  */
 
 
 body{
@@ -31,6 +31,10 @@ body{
   margin: 0px;
   padding: 0px;
   background-color: #3B623B;
+}
+
+p, h1, h2, h3, h4, h5, h6, a, li, ul, ol {
+  font-family: IT;
 }
 
 .App {

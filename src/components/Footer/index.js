@@ -54,8 +54,8 @@ const Footer = () => {
                         </ul>
                         <div className="footer-media-container">
                             <div className="social-media">
-                                <a href="/"><img className="social-logo" src={InstagramLogo} alt=""/></a>
-                                <a href="/"><img className="social-logo" src={FacebookLogo} alt=""/></a>
+                                <a href="https://www.instagram.com/jos_halsocafe/"><img className="social-logo" src={InstagramLogo} alt=""/></a>
+                                <a href="https://www.facebook.com/josavenyn/"><img className="social-logo" src={FacebookLogo} alt=""/></a>
                                 <a href="/"><img className="store-logo" src={GooglePlayLogo} alt="app store"/></a>
                                 <a href="/"><img src={AppStoreBlack} alt="app store"/></a>  
                             </div>

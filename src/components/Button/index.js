@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const Button = styled.button`
   padding: 12px 40px;
   color: white;
-  font-weight: bold;
+  font-weight: normal;
   border: 0;
   font-size: 14px;
   border-radius: 3px;

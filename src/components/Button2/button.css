@@ -1,4 +1,5 @@
 .btnSmall {
+    z-index: 9999;
     font-family: it;
     border: none;
     border-radius: 2px;
@@ -11,9 +12,9 @@
     position: relative;
     color: #fff;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     background-color: #222;
-    padding: 17px 35px;
+    padding: 16px 37px;
     margin: 0px;
     margin-left: 15px;
   }
