@@ -13,12 +13,18 @@ import "./about.css";
 const About = () => {
 
   const [bgImgHero, setBgImgHero] = React.useState(null);
+  const [bgImgFilter, setBgImgFilter] = React.useState(null);
   const [heroText, setHeroText] = React.useState(null);
 
   React.useEffect(() => {
-    client.getAsset('3PeCEMDgWt1NtcBoFw5zou')
-    .then((asset) => {
-      setBgImgHero(`${asset.fields.file.url}?fit=scale&w=1024&h=768`);
+    client.getEntry('rqIjPz0n3wwEFHhrvubxo')
+    .then((entry) => {
+      if (entry.fields.filter === undefined) {
+        setBgImgFilter(0);
+      } else {
+        setBgImgFilter(entry.fields.filter);
+      }
+      setBgImgHero(`${entry.fields.image.fields.file.url}?fit=scale&w=1024&h=768`);
     })
     .catch(console.error)
     }, []);
@@ -43,7 +49,7 @@ const About = () => {
     <div className="about-view">
       <Nav/>
       <div className="about__first-view">
-          <BgImage src={bgImgHero}/>
+          <BgImage src={bgImgHero} filter={bgImgFilter}/>
           <div className="about_hero-text">
             <h1>{heroText.title}</h1>
             {documentToReactComponents(heroText.heroTextFrontpage)}

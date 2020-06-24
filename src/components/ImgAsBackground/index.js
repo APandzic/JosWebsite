@@ -5,7 +5,7 @@ const StyledImg = styled.div`
     position: relative;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(0deg, rgba(32, 36, 39, 0.1), rgba(32, 36, 39, 0.1));
+    background: linear-gradient(0deg, rgba(32, 36, 39, ${props => props.filter}), rgba(32, 36, 39, ${props => props.filter}));
     img {
         width: 100%;
         height: 100vh;
@@ -18,8 +18,17 @@ const StyledImg = styled.div`
 `;
 
 const ImgAsBackground = (props) => {
+  let filterValue;
+
+  if (props.filter) {
+    filterValue = props.filter;
+  } else {
+    filterValue = 0; 
+  }
+  
+
   return (
-    <StyledImg>
+    <StyledImg filter={filterValue}>
         <img alt={props.alt} src={props.src}></img>
     </StyledImg>
   );

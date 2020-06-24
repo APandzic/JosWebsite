@@ -52,13 +52,6 @@ const Nav = () => {
     const toggle = sidebar === "hidden" ? "show" : "hidden";
     setSidebar(toggle);
 
-    // if (!navBackground) {
-    //   setNavBackground(true);
-    // }
-    // if (navBackground) {
-    //   setNavBackground(false);
-    // }
-
   };
 
   return (

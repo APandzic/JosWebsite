@@ -33,7 +33,7 @@ const Gallery = () => {
     <Nav/>
     <div className="gallery_first-view" >
       {posts.map((post,i) => {
-        return <img key={i} alt="food" src={post.fields.file.url}></img>;
+        return <img key={i} alt="food"  src={post.fields.file.url}></img>;
       })}
     </div>
     <Footer/>

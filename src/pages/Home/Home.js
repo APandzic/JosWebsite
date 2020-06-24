@@ -11,13 +11,19 @@ import "./Home.css";
 const Home = () => {
   const [posts, setPosts] = React.useState(null);
   const [bgImgHero, setBgImgHero] = React.useState(null);
+  const [bgImgFilter, setBgImgFilter] = React.useState(null);
   const [heroText, setHeroText] = React.useState(null);
   const [bgImgDesign, setBgImgDesign] = React.useState(null);
 
   React.useEffect(() => {
-  client.getAsset('2bNbXjUGkx9N1FCDubdOqp')
-  .then((asset) => {
-    setBgImgHero(`${asset.fields.file.url}?fit=scale&w=1024&h=768`);
+  client.getEntry('41MeN1NV4cy7IOqujasrrV')
+  .then((entry) => {
+    if (entry.fields.filter === undefined) {
+      setBgImgFilter(0);
+    } else {
+      setBgImgFilter(entry.fields.filter);
+    }
+    setBgImgHero(`${entry.fields.image.fields.file.url}?fit=scale&w=1024&h=768`);
   })
   .catch(console.error)
   }, []);
@@ -46,19 +52,19 @@ const Home = () => {
     });
   }, []);
 
-  if (!bgImgHero || !posts || !heroText || !bgImgDesign) {
+  if (!bgImgHero || !posts || !heroText || !bgImgDesign ) {
     return (
       <div className="pre-loader">
         <Nav/>
       </div>
     )
   };
-  
+
   return (
     <div className="home-view">
       <Nav/>
         <div className="home__first-view">
-          <BgImage src={bgImgHero}/>
+          <BgImage src={bgImgHero} filter={bgImgFilter}/>
           <div className="home_hero-text">
             <h1>{heroText.title}</h1>
             {documentToReactComponents(heroText.heroTextFrontpage)}

@@ -14,12 +14,18 @@ import "./contact.css";
 const Contact = () => {
 
   const [bgImgHero, setBgImgHero] = React.useState(null);
+  const [bgImgFilter, setBgImgFilter] = React.useState(null);
   const [heroText, setHeroText] = React.useState(null);
 
   React.useEffect(() => {
-    client.getAsset('2TZGb4Zl5XqDAtIeUFcKuP')
-    .then((asset) => {
-      setBgImgHero(`${asset.fields.file.url}?fit=scale&w=1024&h=768`);
+    client.getEntry('8dsivGZMKxFuv3LjDWClo')
+    .then((entry) => {
+      if (entry.fields.filter === undefined) {
+        setBgImgFilter(0);
+      } else {
+        setBgImgFilter(entry.fields.filter);
+      }
+      setBgImgHero(`${entry.fields.image.fields.file.url}?fit=scale&w=1024&h=768`);
     })
     .catch(console.error)
     }, []);
@@ -45,7 +51,7 @@ const Contact = () => {
     <div className="contact-view">
       <Nav/>
         <div className="contact__first-view">
-          <BgImage src={bgImgHero}/>
+          <BgImage src={bgImgHero} filter={bgImgFilter}/>
           <div className="contact_hero-text">
             <h1>{heroText.title}</h1>
             {documentToReactComponents(heroText.heroTextFrontpage)}
