@@ -3,8 +3,8 @@ import client from "../../contentful";
 
 import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
+import PreLoader from "../../components/PreLoader/PreLoader";
 
-import test from "../../assets/images/landscape.jpg";
 import "./gallery.css";
 
 
@@ -21,8 +21,11 @@ const Gallery = () => {
 
   if (!posts) {
     return (
-      <div className="gallery-loader">
+      <div>
         <Nav/>
+        <div className="pre-loader">
+        <PreLoader/>
+        </div>
       </div>
     )
   };

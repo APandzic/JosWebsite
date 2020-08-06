@@ -25,6 +25,16 @@
   src: local('IT'), url(./assets/fonts/Rasmus-Bold.otf) format('opentype');
 }  */
 
+.pre-loader {
+  margin-top: 68px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 90vh;
+}
 
 body{
   font-family: IT;

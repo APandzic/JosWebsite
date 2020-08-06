@@ -1,6 +1,10 @@
 import React, { Suspense } from "react";
 import { Router } from '@reach/router';
 
+import Nav from "./components/Nav";
+import PreLoader from "./components/PreLoader/PreLoader";
+
+
 // import Home from './pages/Home/Home';
 import NotFound from "./pages/NotFound";
 // import About from "./pages/About";
@@ -20,8 +24,16 @@ const Work = React.lazy(() => import('./pages/Work'));
 const Contact = React.lazy(() => import('./pages/Contact'));
 const Gallery = React.lazy(() => import('./pages/Gallery/gallery'));
 
-//Detta måste ändras. 
-const LoadingPage = () => <div>Loading...</div>
+const LoadingPage = () => {
+  return (
+    <div>
+      <Nav/>
+      <div className="pre-loader">
+      <PreLoader/>
+      </div>
+    </div>
+  )
+}
 
 function App() {
   return (

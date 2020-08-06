@@ -1,14 +1,15 @@
 import React from "react";
 import client from "../../contentful";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
+import PreLoader from "../../components/PreLoader/PreLoader";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import BgImage from "../../components/ImgAsBackground";
 
 import "./work.css";
 
 const Work = () => {
+
 
   const [bgImgHero, setBgImgHero] = React.useState(null);
   const [heroText, setHeroText] = React.useState(null);
@@ -31,12 +32,15 @@ const Work = () => {
 
       if (!bgImgHero || !heroText) {
         return (
-          <div className="pre-loader">
+          <div>
             <Nav/>
+            <div className="pre-loader">
+            <PreLoader/>
+            </div>
           </div>
         )
       };
- 
+
   return (
     <div className="work-view">
       <Nav/>
@@ -45,7 +49,6 @@ const Work = () => {
           <img alt="hero" src={bgImgHero}/>
         </div>
           <div className="work_hero-text">
-            <h1>{heroText.title}</h1>
             {documentToReactComponents(heroText.heroTextFrontpage)}
           </div>
       </div>

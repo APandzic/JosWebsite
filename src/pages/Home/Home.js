@@ -1,11 +1,14 @@
 import React from "react";
 import client from "../../contentful";
+import { Element, animateScroll as scroller } from 'react-scroll';
 
+import PreLoader from "../../components/PreLoader/PreLoader";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import BgImage from "../../components/ImgAsBackground";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
+import arrowDown from "../../assets/images/arrowdown.svg"
 import "./Home.css";
 
 const Home = () => {
@@ -27,7 +30,7 @@ const Home = () => {
   })
   .catch(console.error)
   }, []);
-
+  
   React.useEffect(() => {
     client.getEntry('2ckzy2x6Dc9YgIPQk1kvJN')
     .then((entry) => {
@@ -52,13 +55,26 @@ const Home = () => {
     });
   }, []);
 
-  if (!bgImgHero || !posts || !heroText || !bgImgDesign ) {
+  if (!bgImgHero || !posts || !heroText || !bgImgDesign) {
     return (
-      <div className="pre-loader">
+      <div>
         <Nav/>
+        <div className="pre-loader">
+        <PreLoader/>
+        </div>
       </div>
     )
   };
+
+  const scrollToFunction = () => {
+    scroller.scrollTo('scroll-to-element', {
+      duration: 100,
+      delay: 0,
+      smooth: 'easeInOutQuart',
+      offset: -65
+    })
+  }
+
 
   return (
     <div className="home-view">
@@ -69,8 +85,10 @@ const Home = () => {
             <h1>{heroText.title}</h1>
             {documentToReactComponents(heroText.heroTextFrontpage)}
           </div>
+          <img className="scrollToButton" src={arrowDown} onClick={scrollToFunction} alt="arrow button"></img>
         </div>
         <div className="home__second-view">
+        <Element name="scroll-to-element" className="element"></Element>
         {posts.map((post, i) => {
             return (
               <div key={i}>

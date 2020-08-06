@@ -3,6 +3,7 @@ import client from "../../contentful";
 
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
+import PreLoader from "../../components/PreLoader/PreLoader";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import BgImage from "../../components/ImgAsBackground";
 
@@ -39,8 +40,11 @@ const About = () => {
 
       if (!bgImgHero || !heroText) {
         return (
-          <div className="pre-loader">
+          <div>
             <Nav/>
+            <div className="pre-loader">
+            <PreLoader/>
+            </div>
           </div>
         )
       };

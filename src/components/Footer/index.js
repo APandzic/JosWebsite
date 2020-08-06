@@ -6,7 +6,7 @@ import InstagramLogo from "../../assets/images/instagram.png";
 import FacebookLogo from "../../assets/images/facebook.png";
 import AppStoreBlack from "../../assets/images/AppStore_blk.svg";
 import GooglePlayLogo from "../../assets/images/googleLogo.png";
-import AppStoreWhite from "../../assets/images/AppStore_wht.svg";
+// import AppStoreWhite from "../../assets/images/AppStore_wht.svg";
 import "./footer.css";
 
 const Footer = () => {
@@ -18,13 +18,13 @@ const Footer = () => {
                             <li>
                                 <ul>
                                     <li className="section-heading-bar"></li>
-                                    <Link className="footer-header" to="/about">OM JOS</Link>
+                                    <a className="footer-header" href="https://jos.order.leeroy.se/jos/">MENY</a>
                                 </ul>
                             </li>
                             <li>
                                 <ul>
                                     <li className="section-heading-bar"></li>
-                                    <a className="footer-header" href="https://jos.order.leeroy.se/jos/">VÅR MAT</a>
+                                    <Link className="footer-header" to="/about">OM OSS</Link>
                                 </ul>
                             </li>
                             <li>

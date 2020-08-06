@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "@reach/router";
-import "./nav.css"
+import HamburgerMenu from "react-hamburger-menu";
+
 import Button from "../Button1";
-import ButtonSmall from "../Button2";
+// import ButtonSmall from "../Button2";
 import InstagramLogo from "../../assets/images/instagram.png";
 import FacebookLogo from "../../assets/images/facebook.png";
 import JosLogo from "../Logo/Logo";
+
+import "./nav.css"
 
 
 const NavLink = props => (
@@ -27,6 +30,7 @@ const Nav = () => {
 
   const [sidebar, setSidebar] = React.useState('hidden');
   const [navBackground, setNavBackground] = React.useState(false);
+  const [hamburgerMenuOpen, sethamburgerMenuOpen] = React.useState(false);
 
   const navRef = React.useRef();
   navRef.current = navBackground;
@@ -36,8 +40,9 @@ const Nav = () => {
   };
 
   React.useEffect(() => {
+
     const handleScroll = () => {
-      const show = window.scrollY > 20
+      let show = window.scrollY > 20
       if (navRef.current !== show) {
         setNavBackground(show)
       }
@@ -54,20 +59,29 @@ const Nav = () => {
 
   };
 
+  const handleClickHamburger = () => {
+    const updatedHamburgerMenuOpen = hamburgerMenuOpen === false ? true : false;
+    sethamburgerMenuOpen(updatedHamburgerMenuOpen);
+    toggleSidebar();
+  };
+
   return (
     <div className="nav">
       <div className="nav-wrapper" style={style}>
         <div></div>
-        <div><JosLogo/></div>
+        <div>
+          <div className="josLogoContainer"><JosLogo/></div>
+        </div>
         <div>
           <a href="https://jos.order.leeroy.se/jos/"><Button buttonText="BESTÄLL ONLINE"></Button></a>
-          <ButtonSmall handleClick={toggleSidebar} buttonText="Meny"></ButtonSmall>
+          {/* <ButtonSmall handleClick={toggleSidebar} buttonText="Meny"></ButtonSmall> */}
+          <HamburgerMenu className="hamburgerMenu" isOpen={hamburgerMenuOpen} menuClicked={handleClickHamburger} width={36} height={30} color='#ffffff' animationDuration={0.5} borderRadius={0} strokeWidth={3} />
         </div>
       </div>
       <aside className={`nav-sidebar ${sidebar}`}>
           <NavLink to="/">HOME</NavLink>
-          <a href="https://jos.order.leeroy.se/jos/">VÅR MAT</a>
-          <NavLink to="/about">OM JOS</NavLink>
+          <a href="https://jos.order.leeroy.se/jos/">MENY</a>
+          <NavLink to="/about">OM OSS</NavLink>
           <NavLink to="/gallery">GALLERY</NavLink>
           <a href="https://jos.order.leeroy.se/jos/business/login">FÖRETAGSKUND</a>
           <NavLink to="/contact">KONTAKTA OSS</NavLink>
