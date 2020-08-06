@@ -1,6 +1,6 @@
 import React from "react";
 import client from "../../contentful";
-import { Element, animateScroll as scroller } from 'react-scroll';
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
 import PreLoader from "../../components/PreLoader/PreLoader";
 import Nav from "../../components/Nav";
