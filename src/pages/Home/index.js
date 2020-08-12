@@ -2,7 +2,7 @@ import React from "react";
 import client from "../../contentful";
 import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
-import PreLoader from "../../components/PreLoader/PreLoader";
+import PreLoader from "../../components/PreLoader";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import BgImage from "../../components/ImgAsBackground";
@@ -10,6 +10,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import arrowDown from "../../assets/images/arrowdown.svg"
 import "./Home.css";
+
 
 const Home = () => {
   const [posts, setPosts] = React.useState(null);
@@ -26,7 +27,8 @@ const Home = () => {
     } else {
       setBgImgFilter(entry.fields.filter);
     }
-    setBgImgHero(`${entry.fields.image.fields.file.url}?fit=scale&w=1024&h=768`);
+    // setBgImgHero(`${entry.fields.image.fields.file.url}?fit=scale&w=1024&h=768`);
+    setBgImgHero(`${entry.fields.image.fields.file.url}`);
   })
   .catch(console.error)
   }, []);
@@ -89,44 +91,52 @@ const Home = () => {
         </div>
         <div className="home__second-view">
         <Element name="scroll-to-element" className="element"></Element>
+
+        {/* rendering post */}
         {posts.map((post, i) => {
             return (
               <div key={i}>
-              <article className="home__posts">
-                <section className="article__content">
-                  <div>
-                    {post.fields.images.length === 1 &&
-                    <div className="article__container-img">
-                      {post.fields.images.map((img, index ) => {
-                        return (
-                          <img key={index} src={img.fields.file.url} alt="food"></img>
-                        );
-                      })}
-                    </div>
+                <article className="home__posts">
+                  <section className="article__content">
+                    {/* checking for odd or even number to render text after or before img in post*/}
+                    {i % 2 !== 0 && 
+                      <div>
+                        <div className="article__container-text">
+                        <h1>{post.fields.title}</h1>
+                          {documentToReactComponents(post.fields.text)}
+                          {documentToReactComponents(post.fields.link)}
+                        </div>
+                      </div>
                     }
-                    {post.fields.images.length > 1 &&
-                    <div className="article__container-img-grid">
-                      {post.fields.images.map((img, index ) => {
-                        return (
-                          <img key={index} src={img.fields.file.url} alt="food"></img>
-                        );
-                      })}
+                    <div>
+                      {/* rendering img in post */}
+                      <div className={post.fields.images.length === 1 ? "article__container-img" : "article__container-img-grid"}>
+                        {post.fields.images.map((img, index ) => {
+                          return (
+                            <img key={index} src={img.fields.file.url} alt="food"></img>
+                          );
+                        })}
+                      </div>
                     </div>
-                    }
-                  </div>
-                  <div>
-                    <div className="article__container-text">
-                    <h1>{post.fields.title}</h1>
-                      {documentToReactComponents(post.fields.text)}
-                      {documentToReactComponents(post.fields.link)}
-                    </div>
-                  </div>
-                </section>
-              </article>
 
-              {posts.length - 1 !== i &&
-                <div className="parallax" style={{backgroundImage: `url(${bgImgDesign[i].fields.backgroundImage.fields.file.url})`}}></div>
-              }
+                    {/* checking for odd or even number to render text after or before img in post*/}
+                    {i % 2 === 0 &&
+                      <div>
+                        <div className="article__container-text">
+                        <h1>{post.fields.title}</h1>
+                          {documentToReactComponents(post.fields.text)}
+                          {documentToReactComponents(post.fields.link)}
+                        </div>
+                      </div>
+                    }
+                  </section>
+                </article>
+
+                {/* stops rendering background img for parallax after last post*/}
+                {posts.length - 1 !== i &&
+                  <div className="parallax" style={{backgroundImage: `url(${bgImgDesign[i].fields.backgroundImage.fields.file.url})`}}></div>
+                }
+
               </div>
             );
           })}

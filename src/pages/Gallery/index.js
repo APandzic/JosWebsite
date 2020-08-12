@@ -3,7 +3,7 @@ import client from "../../contentful";
 
 import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
-import PreLoader from "../../components/PreLoader/PreLoader";
+import PreLoader from "../../components/PreLoader";
 
 import "./gallery.css";
 

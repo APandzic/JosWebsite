@@ -2,7 +2,7 @@ import React from "react";
 import client from "../../contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-import PreLoader from "../../components/PreLoader/PreLoader";
+import PreLoader from "../../components/PreLoader";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 
@@ -13,6 +13,7 @@ const Work = () => {
 
   const [bgImgHero, setBgImgHero] = React.useState(null);
   const [heroText, setHeroText] = React.useState(null);
+  const [subImages, setSubImages] = React.useState(null);
 
   React.useEffect(() => {
     client.getAsset('3Acy0KWFymh3tHr6F73hOi')
@@ -30,10 +31,18 @@ const Work = () => {
       .catch(console.error)
       }, []);
 
-      if (!bgImgHero || !heroText) {
+      React.useEffect(() => {
+        client.getEntry('14VNczULZkWKFjDFG745z4')
+        .then((entry) => {        
+          setSubImages(entry.fields.imagesForSubPage);
+        })
+        .catch(console.error)
+        }, []);
+
+      if (!bgImgHero || !heroText || !subImages) {
         return (
           <div>
-            <Nav/>
+            <Nav showNav="yes"/>
             <div className="pre-loader">
             <PreLoader/>
             </div>
@@ -43,15 +52,25 @@ const Work = () => {
 
   return (
     <div className="work-view">
-      <Nav/>
+      <Nav showNav="yes"/>
       <div className="work__first-view">
         <div className="work__img-container">
           <img alt="hero" src={bgImgHero}/>
         </div>
           <div className="work_hero-text">
+            <h1>{heroText.title}</h1>
             {documentToReactComponents(heroText.heroTextFrontpage)}
           </div>
       </div>
+      <div className="work__second-view">
+          <div className="work__post-img-container">
+          {subImages.map((post,i) =>{
+            return (
+                <img key={i} src={post.fields.file.url} alt="workers"></img>
+            );
+          })};
+          </div>
+        </div> 
       <Footer/>
     </div>
   );

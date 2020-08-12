@@ -1,4 +1,3 @@
-
 .work-view {
     margin: 0px;
     display: flex;
@@ -28,7 +27,8 @@
 
 .work_hero-text {
     padding-top: 50px;
-    padding-bottom: 120px;
+    /* padding-bottom: 120px; */
+    padding-bottom: 40px;
     background-color: #ffffff;
     width: 100%;
     display: flex;
@@ -60,4 +60,23 @@
     line-height: 150%;
     z-index: 1;
     width: 80%;
+}
+
+.work__second-view {
+    background-color: #ffffff;
+    padding-bottom: 100px;
+}
+
+.work__post-img-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.work__post-img-container > img {
+    margin: 10px;
+    width: 40%;
+    height: 400px;
 }

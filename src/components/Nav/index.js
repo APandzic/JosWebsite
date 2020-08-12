@@ -6,7 +6,7 @@ import Button from "../Button1";
 // import ButtonSmall from "../Button2";
 import InstagramLogo from "../../assets/images/instagram.png";
 import FacebookLogo from "../../assets/images/facebook.png";
-import JosLogo from "../Logo/Logo";
+import JosLogo from "../Logo";
 
 import "./nav.css"
 
@@ -26,7 +26,7 @@ const NavLink = props => (
   />
 );
 
-const Nav = () => {
+const Nav = props => {
 
   const [sidebar, setSidebar] = React.useState('hidden');
   const [navBackground, setNavBackground] = React.useState(false);
@@ -34,9 +34,12 @@ const Nav = () => {
 
   const navRef = React.useRef();
   navRef.current = navBackground;
-  let style = {
+  let styleTransparent = {
     backgroundColor: navBackground ? "#3B623B" : "transparent",
     transition: "1s ease",
+  };
+  const styleShow = {
+    backgroundColor: "#3B623B",
   };
 
   React.useEffect(() => {
@@ -67,7 +70,7 @@ const Nav = () => {
 
   return (
     <div className="nav">
-      <div className="nav-wrapper" style={style}>
+      <div className="nav-wrapper" style={props.showNav === "yes" ? styleShow : styleTransparent }>
         <div></div>
         <div>
           <div className="josLogoContainer"><JosLogo/></div>
@@ -82,7 +85,7 @@ const Nav = () => {
           <NavLink to="/">HOME</NavLink>
           <a href="https://jos.order.leeroy.se/jos/">MENY</a>
           <NavLink to="/about">OM OSS</NavLink>
-          <NavLink to="/gallery">GALLERY</NavLink>
+          {/* <NavLink to="/gallery">GALLERY</NavLink> */}
           <a href="https://jos.order.leeroy.se/jos/business/login">FÖRETAGSKUND</a>
           <NavLink to="/contact">KONTAKTA OSS</NavLink>
           <NavLink to="/work">JOBBA HOS OSS</NavLink>

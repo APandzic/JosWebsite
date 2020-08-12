@@ -27,12 +27,12 @@ const Footer = () => {
                                     <Link className="footer-header" to="/about">OM OSS</Link>
                                 </ul>
                             </li>
-                            <li>
+                            {/* <li>
                                 <ul>
                                     <li className="section-heading-bar"></li>
                                     <Link className="footer-header" to="/gallery">GALLERI</Link>
                                 </ul>
-                            </li>
+                            </li> */}
                             <li>
                                 <ul>
                                     <li className="section-heading-bar"></li>

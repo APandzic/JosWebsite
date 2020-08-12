@@ -77,6 +77,7 @@
     display: flex;
     height: 100%;
     width: 100%;
+    
 }
 
 .article__content > div {
@@ -94,6 +95,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .article__container-img > img {
@@ -163,7 +165,7 @@
     /* background-image: url('../../assets/images/test.jpg'); */
   
     /* Full height */
-    height: 450px; 
+    height: 400px; 
   
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -171,13 +173,12 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
-.parallax-container {
 
-}
+
 
 
