@@ -96,7 +96,7 @@ const Home = () => {
             <h1>{heroText.title}</h1>
             {documentToReactComponents(heroText.heroTextFrontpage)}
           </div>
-          <img className="scrollToButton" src={arrowDown} onClick={scrollToFunction} alt="arrow button"></img>
+          {width > 992 ? <img className="scrollToButton" src={arrowDown} onClick={scrollToFunction} alt="arrow button"></img> : <div></div>}
         </div>
         <div className="home__second-view">
         <Element name="scroll-to-element" className="element"></Element>

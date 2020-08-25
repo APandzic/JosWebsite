@@ -16,6 +16,7 @@ const Home = React.lazy(() => import('./pages/Home'));
 const About = React.lazy(() => import('./pages/About'));
 const Work = React.lazy(() => import('./pages/Work'));
 const Contact = React.lazy(() => import('./pages/Contact'));
+// in the future
 // const Gallery = React.lazy(() => import('./pages/Gallery'));
 
 const LoadingPage = () => {

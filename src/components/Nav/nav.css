@@ -60,7 +60,7 @@
     overflow: hidden;
     height: 100vh;
     width: 0px;
-    padding-top: 68px;
+    padding-top: 15px;
     background-color: #3B623B;
     transition: all 300ms ease-in-out;
     
@@ -108,6 +108,10 @@
         visibility: visible;
         display: inline-block;
         cursor: pointer;
+    }
+    
+    .nav-sidebar {
+        padding-top: 68px;
     }
     
     .nav-wrapper > div > .hamburgerMenu {
