@@ -14,6 +14,10 @@ const StyledImg = styled.div`
         top: 0;
         left: 0;
         z-index: -1;
+        object-fit: cover;
+        @media (min-width: 992px) {
+          object-fit: fill;
+        }
     }
 `;
 

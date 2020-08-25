@@ -85,7 +85,7 @@ const Nav = props => {
           <NavLink to="/">HOME</NavLink>
           <a href="https://jos.order.leeroy.se/jos/">MENY</a>
           <NavLink to="/about">OM OSS</NavLink>
-          {/* <NavLink to="/gallery">GALLERY</NavLink> */}
+          {/* <NavLink to="/gallery">GALLERI</NavLink> */}
           <a href="https://jos.order.leeroy.se/jos/business/login">FÖRETAGSKUND</a>
           <NavLink to="/contact">KONTAKTA OSS</NavLink>
           <NavLink to="/work">JOBBA HOS OSS</NavLink>

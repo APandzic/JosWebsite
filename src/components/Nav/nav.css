@@ -16,10 +16,10 @@
 }
 
 .nav-wrapper > div {
-    width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 33%;
 }
 
 .josLogoContainer {
@@ -34,7 +34,10 @@
 .nav-wrapper > div > a {
     z-index: 9999;
     text-decoration: none;
+    visibility: hidden;
+    display: none;
 }
+
 
 .nav-wrapper > div > .hamburgerMenu {
     z-index: 9999;
@@ -44,15 +47,6 @@
     margin-right: 20px;
 }
 
-.nav-wrapper > div > h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #ffffff;
-    font-size: 42px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 21px;
-    margin: 0px;
-}
 
 .nav-sidebar {
     z-index: 10;
@@ -64,7 +58,7 @@
     right: 0;
     top: 0;
     overflow: hidden;
-    height: calc(100vh - 68px);
+    height: 100vh;
     width: 0px;
     padding-top: 68px;
     background-color: #3B623B;
@@ -103,5 +97,31 @@
 .show {
     visibility: visible;
     /* width: 332px; */
-    width: 340px;
+    width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+    
+    .nav-wrapper > div > a {
+        z-index: 9999;
+        text-decoration: none;
+        visibility: visible;
+        display: inline-block;
+        cursor: pointer;
+    }
+    
+    .nav-wrapper > div > .hamburgerMenu {
+        cursor: pointer;
+    }
+    
+    .nav-sidebar {
+        height: calc(100vh - 68px);
+    }
+
+    .show {
+        visibility: visible;
+        /* width: 332px; */
+        width: 340px;
+    }
+    
 }

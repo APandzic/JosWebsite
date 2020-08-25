@@ -18,6 +18,7 @@ const Home = () => {
   const [bgImgFilter, setBgImgFilter] = React.useState(null);
   const [heroText, setHeroText] = React.useState(null);
   const [bgImgDesign, setBgImgDesign] = React.useState(null);
+  const [width, setWidth] = React.useState(window.innerWidth);
 
   React.useEffect(() => {
   client.getEntry('41MeN1NV4cy7IOqujasrrV')
@@ -57,6 +58,15 @@ const Home = () => {
     });
   }, []);
 
+  const updateWidthAndHeight = () => {
+    setWidth(window.innerWidth);
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("resize", updateWidthAndHeight);
+    return () => window.removeEventListener("resize", updateWidthAndHeight);
+  });
+
   if (!bgImgHero || !posts || !heroText || !bgImgDesign) {
     return (
       <div>
@@ -76,7 +86,6 @@ const Home = () => {
       offset: -65
     })
   }
-
 
   return (
     <div className="home-view">
@@ -99,7 +108,7 @@ const Home = () => {
                 <article className="home__posts">
                   <section className="article__content">
                     {/* checking for odd or even number to render text after or before img in post*/}
-                    {i % 2 !== 0 && 
+                    {i % 2 !== 0 || width < 992 ?
                       <div>
                         <div className="article__container-text">
                         <h1>{post.fields.title}</h1>
@@ -107,8 +116,8 @@ const Home = () => {
                           {documentToReactComponents(post.fields.link)}
                         </div>
                       </div>
-                    }
-                    <div>
+                      :
+                      <div>
                       {/* rendering img in post */}
                       <div className={post.fields.images.length === 1 ? "article__container-img" : "article__container-img-grid"}>
                         {post.fields.images.map((img, index ) => {
@@ -117,10 +126,10 @@ const Home = () => {
                           );
                         })}
                       </div>
-                    </div>
-
-                    {/* checking for odd or even number to render text after or before img in post*/}
-                    {i % 2 === 0 &&
+                      </div>
+                    }
+                    {/* checking for odd or even number to render text after or before img in post. Also this will only be the case for media over 992 width */}
+                    {i % 2 === 0  && width > 992 ?
                       <div>
                         <div className="article__container-text">
                         <h1>{post.fields.title}</h1>
@@ -128,13 +137,36 @@ const Home = () => {
                           {documentToReactComponents(post.fields.link)}
                         </div>
                       </div>
+                      :
+                      <div>
+                      {/* rendering img in post */}
+                      <div className={post.fields.images.length === 1 ? "article__container-img" : "article__container-img-grid"}>
+                        {post.fields.images.map((img, index ) => {
+                          return (
+                            <img key={index} src={img.fields.file.url} alt="food"></img>
+                          );
+                        })}
+                      </div>
+                      </div>
                     }
+
+                    {/* {i % 2 === 0 &&
+                      <div>
+                        <div className="article__container-text">
+                        <h1>{post.fields.title}</h1>
+                          {documentToReactComponents(post.fields.text)}
+                          {documentToReactComponents(post.fields.link)}
+                        </div>
+                      </div>
+                    } */}
                   </section>
                 </article>
 
                 {/* stops rendering background img for parallax after last post*/}
-                {posts.length - 1 !== i &&
+                {posts.length - 1 !== i && width > 992 ?
                   <div className="parallax" style={{backgroundImage: `url(${bgImgDesign[i].fields.backgroundImage.fields.file.url})`}}></div>
+                  :
+                  <div></div>
                 }
 
               </div>

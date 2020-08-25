@@ -3,14 +3,13 @@
     background-color: #3B623B;
     display: flex;
     justify-content: center;
-    height: 250px;
     bottom: 0px;
+    box-sizing: border-box; 
 }
 
 .footer-container {
     margin: auto;
     width: 90%;
-    height: 60%;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -26,13 +25,14 @@
 .footer-container li {
     list-style: none;
     line-height: 30px;
+    margin: 10px;
 }
 
 .footer-Links {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    height: 90%;
+    align-items: center;
     padding: 0px;
 }
 
@@ -55,21 +55,28 @@
 
 .footer-media-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    height: 15%;
 }
 
 .social-media {
     height: 100%;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
+.social-media > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;    
+}
+
 .social-media .social-logo {
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     margin-left: 20px;
 }
 
@@ -77,4 +84,66 @@
     height: 58px;
     width: 119.66407;
     margin-left: 20px;
+}
+
+.footer-Copyright {
+    margin-bottom: 10px;
+}
+
+.footer-Copyright > p{
+    color: #ffffff;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+@media screen and (min-width: 992px) {
+    .footer-view {
+        height: 250px;
+    }
+    
+    .footer-container {
+        height: 100%;
+    }
+    
+    .footer-container ul {
+        list-style: none;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    
+    .footer-Links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 40%;
+        padding: 0px;
+    }
+    
+    .footer-media-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 24%;
+    }
+    
+    .social-media {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .social-media .social-logo {
+        height: 40px;
+        width: 40px;
+        margin-left: 20px;
+    }
+    
+
+    .footer-Copyright {
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
 }
