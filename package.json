@@ -41,6 +41,6 @@
     ]
   },
   "devDependencies": {
-    "file-loader": "^6.0.00"
+    "file-loader": "^6.0.0"
   }
 }
