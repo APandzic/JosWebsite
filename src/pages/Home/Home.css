@@ -53,6 +53,10 @@
     
 }
 
+.home_hero-text > a {
+    text-decoration: none;
+}
+
 .scrollToButton {
     z-index: 1;
     width: 50px;
