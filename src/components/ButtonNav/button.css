@@ -12,6 +12,7 @@
     font-family: it;
     font-weight: 600;
     font-size: 16px;
+    letter-spacing: 3px;
     background-color: #222;
     padding: 16px 40px;
     margin: 0px;
@@ -27,7 +28,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    height: 490%;
+    height: 640%;
     width: 150%;
     background: #5C955B;
     -webkit-transition: all .5s ease-in-out;

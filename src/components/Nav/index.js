@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import HamburgerMenu from "react-hamburger-menu";
 
-import Button from "../Button1";
+import Button from "../ButtonNav";
 // import ButtonSmall from "../Button2";
 import InstagramLogo from "../../assets/images/instagram.png";
 import FacebookLogo from "../../assets/images/facebook.png";

@@ -6,6 +6,7 @@ import PreLoader from "../../components/PreLoader";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import BgImage from "../../components/ImgAsBackground";
+import ButtonMobile from "../../components/ButtonMobileFront";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import arrowDown from "../../assets/images/arrowdown.svg"
@@ -95,8 +96,9 @@ const Home = () => {
           <div className="home_hero-text">
             <h1>{heroText.title}</h1>
             {documentToReactComponents(heroText.heroTextFrontpage)}
+            {width < 992 && <a href="https://jos.order.leeroy.se/jos/"><ButtonMobile buttonText="BESTÄLL ONLINE"></ButtonMobile></a>}
           </div>
-          {width > 992 ? <img className="scrollToButton" src={arrowDown} onClick={scrollToFunction} alt="arrow button"></img> : <div></div>}
+          {width > 992 && <img className="scrollToButton" src={arrowDown} onClick={scrollToFunction} alt="arrow button"></img>}
         </div>
         <div className="home__second-view">
         <Element name="scroll-to-element" className="element"></Element>

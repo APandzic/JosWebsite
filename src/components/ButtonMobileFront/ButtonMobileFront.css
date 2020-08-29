@@ -1,0 +1,21 @@
+.btnSmall {
+    z-index: 9999;
+    font-family: it;
+    border: none;
+    border-radius: 2px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 3px;
+    background-color: #3B623B;
+    padding: 16px 28px;
+    margin: 0px;
+  }
+  
